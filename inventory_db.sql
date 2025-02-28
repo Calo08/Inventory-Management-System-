@@ -32,4 +32,21 @@ CREATE TABLE suppliers (
 CREATE TABLE sales (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
-    total DECIMAL(10
+    total DECIMAL(10    total DECIMAL(10,2) NOT NULL,
+    sale_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+-- Sales Items Table (Tracks products in each sale)
+CREATE TABLE sales_items (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    sale_id INT,
+    product_id INT,
+    quantity INT NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (sale_id) REFERENCES sales(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+-- Insert Default Admin User
+INSERT INTO users (username, password, role) VALUES ('admin', 'admin123', 'admin');
