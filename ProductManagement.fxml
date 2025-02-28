@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ProductManagementController">
+    <children>
+        <VBox alignment="CENTER" spacing="15">
+            <Label text="Product Management" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+            
+            <TextField fx:id="nameField" promptText="Product Name" />
+            <TextField fx:id="categoryField" promptText="Category" />
+            <TextField fx:id="priceField" promptText="Price" />
+            <TextField fx:id="stockField" promptText="Stock Quantity" />
+            
+            <Button text="Add Product" fx:id="addProductButton" onAction="#handleAddProduct" />
+            <Button text="Update Product" fx:id="updateProductButton" onAction="#handleUpdateProduct" />
+            <Button text="Delete Product" fx:id="deleteProductButton" onAction="#handleDeleteProduct" />
+            
+            <TableView fx:id="productTable">
+                <columns>
+                    <TableColumn text="ID" fx:id="idColumn" />
+                    <TableColumn text="Name" fx:id="nameColumn" />
+                    <TableColumn text="Category" fx:id="categoryColumn" />
+                    <TableColumn text="Price" fx:id="priceColumn" />
+                    <TableColumn text="Stock" fx:id="stockColumn" />
+                </columns>
+            </TableView>
+        </VBox>
+    </children>
+</AnchorPane>
